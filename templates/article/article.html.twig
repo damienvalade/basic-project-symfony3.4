@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.name }}{% endblock %}
+
+{% block body %}
+<main class="container">
+    <section class="row">
+
+        <h1>{{ article.name }}</h1>
+        <h2>{{ article.createAt|date("d-m-y") }}</h2>
+        <p class="card-text">{{ article.description }}</p>
+
+    </section>
+</main>
+{% endblock %}
