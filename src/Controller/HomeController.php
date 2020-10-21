@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Articles;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,8 +13,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $articles = $this->getDoctrine()->getRepository(Articles::class);
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'articles' => $articles->findAll(),
         ]);
     }
 }
